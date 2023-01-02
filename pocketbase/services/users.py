@@ -76,9 +76,9 @@ class Users(CrudService):
         - new user authentication token
         - the authenticated user model record
         """
-        body_params.update({"email": email, "password": password})
+        body_params.update({"identity": email, "password": password})
         response_data = self.client.send(
-            self.base_crud_path() + "/auth-via-email",
+            self.base_crud_path() + "/auth-with-password",
             {
                 "method": "POST",
                 "params": query_params,
